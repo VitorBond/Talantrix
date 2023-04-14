@@ -20,7 +20,7 @@ CREATE TABLE Family (
 CREATE TABLE Basket (
 	PRIMARY KEY ([ID identity]),
 	[ID identity] INT IDENTITY(1, 1)     NOT NULL,
-	ID_SKU        INT			         NOT NULL,              
+	ID_SKU        INT		     NOT NULL,              
 	ID_Family     INT                    NOT NULL,
 	Quantity      INT                    NOT NULL,
 	[Value]       DECIMAL(10, 2)         NOT NULL,
