@@ -18,7 +18,7 @@ BEGIN
 	 WHERE SurName LIKE @FamilySurName
 
     IF @FamilyID IS NULL
-		PRINT('Введено не существующее имя семьи!')
+		PRINT('Р’РІРµРґРµРЅРѕ РЅРµ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РµРµ РёРјСЏ СЃРµРјСЊРё!')
 	ELSE
 		UPDATE Family
 			SET BudgetValue = BudgetValue - (SELECT SUM([Value]) FROM Basket WHERE ID_Family = @FamilyID)
