@@ -9,11 +9,19 @@ CREATE FUNCTION udf_GetSKUPrice
 RETURNS DECIMAL(18, 2)
 AS
 BEGIN
-	DECLARE @Result DECIMAL(18, 2)
-	
-	SELECT @Result = Value / Quantity
-	FROM dbo.Basket
-	WHERE ID_SKU = @ID_SKU
+	DECLARE @Result      DECIMAL(18, 2),
+		@SumValue    DECIMAL(18, 2),
+		@SumQuantity DECIMAL(18,2)
+
+	SELECT @SumValue = SUM([Value])
+	  FROM Basket
+	 WHERE ID_SKU = @ID_SKU
+
+	SELECT @SumQuantity = SUM(Quantity)
+	  FROM Basket
+	 WHERE ID_SKU = @ID_SKU
+
+	 SET @Result = @SumValue / @SumQuantity
 
 	RETURN @Result
 END
