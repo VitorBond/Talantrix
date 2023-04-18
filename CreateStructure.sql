@@ -25,7 +25,7 @@ CREATE TABLE Basket (
 	Quantity      INT                    NOT NULL,
 	[Value]       DECIMAL(10, 2)         NOT NULL,
 	PurchaseDate  DATE DEFAULT GETDATE() NOT NULL,
-	DiscountValue  DECIMAL(5, 2)         NOT NULL,
+	DiscountValue  DECIMAL(5, 2),
 
 	CONSTRAINT Quantity_negative_value_check
 		CHECK(Quantity >= 0),
